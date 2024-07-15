@@ -23,6 +23,7 @@ void			ft_putnbr(int n);
 int				ft_putchar(int c);
 void			ft_putstr(char *s);
 void			ft_putuint(unsigned int	n);
-unsigned char	*ft_puthex(unsigned char *buffer, uint32_t value);
+int			  ft_puthex_upper(unsigned int num, char hex);
+int     	ft_puthex_lower(unsigned int num, char hex);
 
 #endif
