@@ -6,39 +6,71 @@
 /*   By: lkhye-ya <lkhye-ya@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 17:44:41 by lkhye-ya          #+#    #+#             */
-/*   Updated: 2024/07/15 17:31:19 by lkhye-ya         ###   ########.fr       */
+/*   Updated: 2024/07/15 21:26:25 by lkhye-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-int	ft_puthex(unsigned int num, char hex)
+
+int	ft_puthex_upper(unsigned int num, char hex)
 {
-	char			hex_chars_upper;
-	char			hex_chars_lower;
-	unsigned long	number;
+	char			*hex_chars_upper;
+	char			*hex_chars_lower;
+	unsigned long	count;
 	unsigned char	format;
 
-	number = num;
-	hex_chars_upper = "0123456789ABCDEF";
-	hex_chars_lower = "01234567890abcdef";
-	if (number > 9)
+	format = hex;
+	count = 0;
+	hex_chars_lower = "0123456789ABCDEF";
+	if (format == 'X')
 	{
-		if (format == 'x')
+		if (num >= 16)
 		{
-			ft_puthex((number / 16), hex_chars_lower);
-			ft_putchar((number % 16) + '0');
+			count += ft_puthex_upper((num / 16), hex);
+			ft_putchar(hex_chars_upper[num % 16]);
+		count++;
 		}
-		else if (format == 'X')
+		else
 		{
-			ft_puthex((number / 16), hex_chars_upper);
-			ft_putchar((number % 16) + '0');
+			ft_putchar(hex_chars_upper[num % 16]);
+			count++;
 		}
 	}
-	else
-	{
-		ft_putchar
-	}
-	
-
+	return (count);
 }
 
+int	ft_puthex_lower(unsigned int num, char hex)
+{
+	char			*hex_chars_upper;
+	char			*hex_chars_lower;
+	unsigned long	count;
+	unsigned char	format;
+
+	format = hex;
+	count = 0;
+	hex_chars_lower = "0123456789abcdef";
+	if (format == 'x')
+	{
+		if (num >= 16)
+		{
+			count += ft_puthex_lower((num / 16), hex);
+			ft_putchar(hex_chars_lower[num % 16]);
+		count++;
+		}
+		else
+		{
+			ft_putchar(hex_chars_lower[num % 16]);
+			count++;
+		}
+	}
+	return (count);
+}
+
+/*
+#include <stdio.h>
+int main()
+{
+	int hi = 17;
+	printf("hexdecimal: %d\n", ft_puthex_lower(hi, 'x'));
+}
+*/
