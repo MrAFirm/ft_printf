@@ -1,4 +1,4 @@
-*OPTIONAL*
+/*OPTIONAL*/
 
 #include <stdio.h>
 #include <stdlib.h>
