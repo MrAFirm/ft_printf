@@ -6,13 +6,13 @@
 /*   By: lkhye-ya <lkhye-ya@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:08:25 by lkhye-ya          #+#    #+#             */
-/*   Updated: 2024/07/12 14:21:25 by lkhye-ya         ###   ########.fr       */
+/*   Updated: 2024/07/17 15:52:15 by lkhye-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
 	long	number;
 
@@ -31,4 +31,5 @@ void	ft_putnbr(int n)
 	{
 		ft_putchar(number + '0');
 	}
+	return ((int)ft_strlen(number));
 }

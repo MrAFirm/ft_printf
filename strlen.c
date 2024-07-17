@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   putuint.c                                          :+:      :+:    :+:   */
+/*   strlen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkhye-ya <lkhye-ya@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/12 17:23:27 by lkhye-ya          #+#    #+#             */
-/*   Updated: 2024/07/17 15:52:53 by lkhye-ya         ###   ########.fr       */
+/*   Created: 2024/07/17 15:45:49 by lkhye-ya          #+#    #+#             */
+/*   Updated: 2024/07/17 15:46:20 by lkhye-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putuint(unsigned int	n)
+size_t	ft_strlen(const char *str)
 {
-	unsigned long	number;
+	size_t	i;
 
-	number = n;
-	if (number > 9)
-	{
-		ft_putuint(number / 10);
-		ft_putchar((number % 10) + '0');
-	}
-	else
-	{
-		ft_putchar(number + '0');
-	}
-	return ((int)ft_strlen(number));
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

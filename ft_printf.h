@@ -6,7 +6,7 @@
 /*   By: lkhye-ya <lkhye-ya@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 16:58:05 by lkhye-ya          #+#    #+#             */
-/*   Updated: 2024/07/15 21:01:46 by lkhye-ya         ###   ########.fr       */
+/*   Updated: 2024/07/17 15:52:27 by lkhye-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@
 # include <stdint.h>
 # include <stdlib.h>
 
-void			ft_putnbr(int n);
+int				ft_putnbr(int n);
 int				ft_putchar(int c);
-void			ft_putstr(char *s);
-void			ft_putuint(unsigned int	n);
-int			  ft_puthex_upper(unsigned int num, char hex);
-int     	ft_puthex_lower(unsigned int num, char hex);
+int				ft_putstr(char *s);
+int				ft_putuint(unsigned int	n);
+int				ft_puthex_upper(unsigned int num, char hex);
+int				ft_puthex_lower(unsigned int num, char hex);
+
+
 
 #endif

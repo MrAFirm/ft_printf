@@ -1,33 +1,42 @@
-#include "ft_printf"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   putptr.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lkhye-ya <lkhye-ya@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/12 17:43:50 by lkhye-ya          #+#    #+#             */
+/*   Updated: 2024/07/17 15:53:19 by lkhye-ya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_putptr(void *ptr)
-{
-    int *int_ptr;
-    int value;
-    int dereferencing;
+#include "ft_printf.h"
 
-    int_ptr = (int *)ptr;
-    *ptr = &value;
-    dereferencing = *ptr;
-    return (dereferencing);
-}
-
-int ft_putchar(int c)
-{
-    char i;
-    i = (char)c;
-    write(1, &i, 1);
-    return (1);
-}
-
-int ft_puthex(unsigned int num)
+static int ft_puthex(uintptr_t num)
 {
     char *hex_chars;
+	int	count;
+
     hex_chars = "0123456789abcdef";
     count = 0;
     if (num >= 16)
         count += ft_puthex(num / 16);
-    else ft_putchar(num % 16);
+    else
+		ft_putchar(num % 16);
     count++;
     return (count);
+}
+
+int ft_putptr(void *ptr)
+{
+	uintptr_t	value;
+	
+	if ((uintptr_t)ptr == 0)
+	{
+		write(1, "0x0", ft_strlen("0x0"));
+		return ((int)(ft_strlen("0x0")));
+	}
+	value = (uintptr_t)ptr;
+	write(1, "0x", 2);
+    return (ft_puthex(value) + 2);
 }
