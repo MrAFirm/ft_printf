@@ -6,7 +6,7 @@
 /*   By: lkhye-ya <lkhye-ya@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 16:57:48 by lkhye-ya          #+#    #+#             */
-/*   Updated: 2024/07/17 15:51:27 by lkhye-ya         ###   ########.fr       */
+/*   Updated: 2024/07/18 21:21:30 by lkhye-ya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,8 @@ int	ft_putstr(char *s)
 	if (!s)
 	{
 		write(1, "(null)", 6);
-		return (ft_strlen("(null)"));
+		return (6);
 	}
-	while (*s)
-	{
-		write(1, &s, 1);
-		s++;
-		return ((int)ft_strlen(s));
-	}
+	write(1, s, ft_strlen(s));
+	return ((int)ft_strlen(s));
 }
